@@ -1,0 +1,11 @@
+README.md
+pom.xml
+src/main/java/ru/karpeikin/ru/fitnes/rest/telegram/api/dto/ApiErrorNode.java
+src/main/java/ru/karpeikin/ru/fitnes/rest/telegram/api/dto/ApiResponseError.java
+src/main/java/ru/karpeikin/ru/fitnes/rest/telegram/api/dto/ClientInfo.java
+src/main/java/ru/karpeikin/ru/fitnes/rest/telegram/api/dto/Login.java
+src/main/java/ru/karpeikin/ru/fitnes/rest/telegram/api/dto/LoginResponseMessage.java
+src/main/java/ru/karpeikin/ru/fitnes/rest/telegram/api/dto/PageParams.java
+src/main/java/ru/karpeikin/ru/fitnes/rest/telegram/api/support/ApiUtil.java
+src/main/java/ru/karpeikin/ru/fitnes/rest/telegram/api/support/AuthApi.java
+src/main/java/ru/karpeikin/ru/fitnes/rest/telegram/api/support/InfoApi.java

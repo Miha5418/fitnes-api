@@ -1,0 +1,120 @@
+plugins {
+    id 'java'
+    id 'org.openapi.generator' version "5.1.0"
+    id 'org.springframework.boot' version '2.6.0'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+}
+
+group 'ru.karpeikin.ru.fitnes'
+version '0.0.1'
+
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    compileOnly "org.springframework.boot:spring-boot-starter-web"
+    compileOnly "org.springframework.data:spring-data-commons:"
+    compileOnly "io.springfox:springfox-swagger2:3.0.0"
+    compileOnly "io.springfox:springfox-swagger-ui:3.0.0"
+    compileOnly "javax.xml.bind:jaxb-api:2.3.1"
+    compileOnly "com.fasterxml.jackson.datatype:jackson-datatype-jsr310"
+    compileOnly "org.openapitools:jackson-databind-nullable:0.2.1"
+    compileOnly "javax.validation:validation-api"
+    compileOnly "com.fasterxml.jackson.core:jackson-databind"
+}
+
+openApiValidate {
+    inputSpec = "$projectDir/src/main/resources/openapi/open-api-admin.yaml".toString()
+}
+
+openApiGenerate {
+    inputSpec = "$projectDir/src/main/resources/openapi/open-api-admin.yaml".toString()
+    outputDir = "$project.buildDir/generated".toString()
+    skipValidateSpec = true
+    generatorName = "spring"
+    library = "spring-boot"
+    apiPackage = "ru.karpeikin.ru.fitnes.rest.admin.api.support"
+    modelPackage = "ru.karpeikin.ru.fitnes.rest.admin.api.dto"
+    generateApiTests = false
+    generateModelTests = false
+    generateApiDocumentation = false
+    generateModelDocumentation = false
+    configOptions = [
+            name: "BrainsApiService",
+//            delegatePattern: "true",
+            dateLibrary: "java8",
+            useOptional: "true",
+            useTags: "true",
+            interfaceOnly: "true",
+            bigDecimalAsString: "true",
+            useBeanValidation: "true"
+    ]
+    typeMappings = ["OffsetDateTime" : "Instant"]
+    importMappings = [
+            "java.time.OffsetDateTime" : "java.time.Instant",
+            "Page": "org.springframework.data.domain.Pageable"
+    ]
+}
+
+task openApiGenerateTelegramApi(type: org.openapitools.generator.gradle.plugin.tasks.GenerateTask){
+    generatorName = "spring"
+    inputSpec = "$projectDir/src/main/resources/openapi/open-api-telegram.yaml".toString()
+    outputDir = "$project.buildDir/generated".toString()
+    skipValidateSpec = true
+    library = "spring-boot"
+    apiPackage = "ru.karpeikin.ru.fitnes.rest.telegram.api.support"
+    modelPackage = "ru.karpeikin.ru.fitnes.rest.telegram.api.dto"
+    invokerPackage = "ru.karpeikin.ru.fitnes.rest.telegram.api.invoker"
+    generateApiTests = false
+    generateModelTests = false
+    generateApiDocumentation = false
+    generateModelDocumentation = false
+    globalProperties = [
+            modelDocs: "false"
+    ]
+    configOptions = [
+            name: "BrainsApiTelegramService",
+            dateLibrary: "java8",
+            useOptional: "true",
+            useTags: "true",
+            interfaceOnly: "true",
+            bigDecimalAsString: "true",
+            useBeanValidation: "true"
+    ]
+    typeMappings = ["OffsetDateTime" : "Instant"]
+    importMappings = [
+            "java.time.OffsetDateTime" : "java.time.Instant",
+            "Page": "org.springframework.data.domain.Pageable"
+    ]
+
+}
+
+compileJava.dependsOn tasks.openApiGenerate
+compileJava.dependsOn tasks.openApiGenerateTelegramApi
+
+sourceSets {
+    main {
+        java {
+            srcDir "$project.buildDir/generated/src/main/java"
+        }
+    }
+}
+
+jar {
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+bootJar {
+    mainClass = 'NONE'
+}
+
+jar {
+    enabled = true
+}
