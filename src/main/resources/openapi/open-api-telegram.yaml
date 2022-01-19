@@ -183,10 +183,6 @@ components:
     ClientInfo:
       description: Информация о клиенте для создания и отображения
       type: object
-      required:
-        - lastName
-        - surName
-        - memberShipNumber
       properties:
         memberShipNumber:
           description: Номер абонемента
