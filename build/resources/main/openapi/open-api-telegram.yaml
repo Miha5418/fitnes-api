@@ -1,0 +1,197 @@
+openapi: 3.0.3
+info:
+  title: СБЕР админка
+  description: Обеспечение работы пользовательского интерфейса проекта "СБЕР админка"
+  version: 0.2.0
+  contact:
+    name: avbx
+
+servers:
+  - url: 'http://localhost:8080'
+    description: Development server
+  - url: 'http://localhost:8080'
+    description: Local run server
+  - url: 'http://localhost:8080'
+    description: Productive server
+  - url: 'http://localhost:8080'
+    description: Test server
+
+paths:
+
+  /auth/login:
+    post:
+      description: Вход пользователя
+      operationId: login
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Login"
+      responses:
+        200:
+          description: Авторизация прошла успешно
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LoginResponseMessage"
+        400:
+          description: Недопустимые параметры вызова
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponseError"
+
+  /client/{telegramId}/info:
+    get:
+      description: Полусить дату окончания абонемента
+      operationId: endDate
+      tags:
+        - Info
+      parameters:
+        - $ref: "#/components/parameters/telegramId"
+      responses:
+        200:
+          description: Информация о клиенте
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ClientInfo"
+
+
+
+components:
+
+  parameters:
+
+    telegramId:
+      in: path
+      name: telegramId
+      description: Идентификатор телеграмма
+      required: true
+      schema:
+        type: integer
+        format: int32
+
+    pageParams:
+      in: query
+      name: pageParams
+      description: Параметры страницы с данными
+      required: false
+      schema:
+        $ref: '#/components/schemas/PageParams'
+
+  schemas:
+
+    PageParams:
+      description: Параметры страницы с данными
+      type: object
+      properties:
+        pageSize:
+          description: Количество элементов на странице
+          type: integer
+          minimum: 1
+          maximum: 100
+        pageCurrent:
+          description: Номер текущей страницы
+          type: integer
+          minimum: 1
+        pageTotal:
+          description: Общее количество страниц
+          type: integer
+
+    ApiResponseError:
+      description: Расширенная информация об ошибке
+      type: object
+      required:
+        - timestamp
+        - type
+        - title
+        - status
+      properties:
+        timestamp:
+          type: string
+          format: 'date-time'
+          description: Метка времени ответа
+        type:
+          type: string
+          description: URI идентификатор категоризации ошибки
+        title:
+          type: string
+          description: Краткое сообщение об ошибке
+        status:
+          type: integer
+          format: int64
+          description: HTTP код ответа
+        detail:
+          type: string
+          description: Полное сообщение об ошибке
+        errorObject:
+          type: string
+          description: Какой объект сломан при запросе
+        errorNodes:
+          description: Детали, где произошла ошибка
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiErrorNode'
+        instance:
+          type: string
+          description: URI идентифицирует конретное место возникновения ошибки
+
+    ApiErrorNode:
+      type: object
+      description: Описание деталей ошибки
+      properties:
+        node:
+          type: string
+          description: Путь к ноде
+        error:
+          type: string
+          description: Техническое описание ошибки
+        message:
+          type: string
+          description: Сообщение об ошибке
+
+    LoginResponseMessage:
+      type: object
+      properties:
+        token:
+          type: string
+        tokenType:
+          type: string
+
+    Login:
+      description: Запрос сообщение на вход в систему
+      type: object
+      required:
+        - telegramId
+        - memberShipNumber
+      properties:
+        telegramId:
+          description: Идентификатор в телеграмме
+          type: string
+          minLength: 1
+          maxLength: 100
+        memberShipNumber:
+          description: Номер абонемента
+          type: string
+          minLength: 1
+          maxLength: 300
+
+    ClientInfo:
+      description: Информация о клиенте для создания и отображения
+      type: object
+      properties:
+        memberShipNumber:
+          description: Номер абонемента
+          type: string
+        memberShipDateEnd:
+          description: Дата окончания действия абонемента
+          type: string
+          format: 'date-time'
+        isActive:
+          description: Активен адонемент или нет
+          type: boolean
+

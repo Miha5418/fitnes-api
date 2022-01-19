@@ -1,0 +1,38 @@
+ru/karpeikin/ru/fitnes/rest/telegram/api/support/ApiUtil.java
+ ru.karpeikin.ru.fitnes.rest.telegram.api.support.ApiUtil
+ru/karpeikin/ru/fitnes/rest/admin/api/support/ApiUtil.java
+ ru.karpeikin.ru.fitnes.rest.admin.api.support.ApiUtil
+ru/karpeikin/ru/fitnes/rest/admin/api/dto/ClientInfoPageable.java
+ ru.karpeikin.ru.fitnes.rest.admin.api.dto.ClientInfoPageable
+ru/karpeikin/ru/fitnes/rest/admin/api/support/AuthzApi.java
+ ru.karpeikin.ru.fitnes.rest.admin.api.support.AuthzApi
+ru/karpeikin/ru/fitnes/rest/telegram/api/dto/PageParams.java
+ ru.karpeikin.ru.fitnes.rest.telegram.api.dto.PageParams
+ru/karpeikin/ru/fitnes/rest/telegram/api/dto/ApiResponseError.java
+ ru.karpeikin.ru.fitnes.rest.telegram.api.dto.ApiResponseError
+ru/karpeikin/ru/fitnes/rest/admin/api/dto/LoginRequestMessage.java
+ ru.karpeikin.ru.fitnes.rest.admin.api.dto.LoginRequestMessage
+ru/karpeikin/ru/fitnes/rest/telegram/api/support/InfoApi.java
+ ru.karpeikin.ru.fitnes.rest.telegram.api.support.InfoApi
+ru/karpeikin/ru/fitnes/rest/telegram/api/dto/Login.java
+ ru.karpeikin.ru.fitnes.rest.telegram.api.dto.Login
+ru/karpeikin/ru/fitnes/rest/telegram/api/support/AuthApi.java
+ ru.karpeikin.ru.fitnes.rest.telegram.api.support.AuthApi
+ru/karpeikin/ru/fitnes/rest/admin/api/dto/ApiErrorNode.java
+ ru.karpeikin.ru.fitnes.rest.admin.api.dto.ApiErrorNode
+ru/karpeikin/ru/fitnes/rest/admin/api/dto/ClientInfo.java
+ ru.karpeikin.ru.fitnes.rest.admin.api.dto.ClientInfo
+ru/karpeikin/ru/fitnes/rest/admin/api/dto/PageParams.java
+ ru.karpeikin.ru.fitnes.rest.admin.api.dto.PageParams
+ru/karpeikin/ru/fitnes/rest/admin/api/dto/ApiResponseError.java
+ ru.karpeikin.ru.fitnes.rest.admin.api.dto.ApiResponseError
+ru/karpeikin/ru/fitnes/rest/telegram/api/dto/ApiErrorNode.java
+ ru.karpeikin.ru.fitnes.rest.telegram.api.dto.ApiErrorNode
+ru/karpeikin/ru/fitnes/rest/telegram/api/dto/ClientInfo.java
+ ru.karpeikin.ru.fitnes.rest.telegram.api.dto.ClientInfo
+ru/karpeikin/ru/fitnes/rest/telegram/api/dto/LoginResponseMessage.java
+ ru.karpeikin.ru.fitnes.rest.telegram.api.dto.LoginResponseMessage
+ru/karpeikin/ru/fitnes/rest/admin/api/dto/LoginResponseMessage.java
+ ru.karpeikin.ru.fitnes.rest.admin.api.dto.LoginResponseMessage
+ru/karpeikin/ru/fitnes/rest/admin/api/support/ClientApi.java
+ ru.karpeikin.ru.fitnes.rest.admin.api.support.ClientApi
