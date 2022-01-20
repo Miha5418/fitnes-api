@@ -23,7 +23,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-01-19T14:23:03.136589+07:00[Asia/Novosibirsk]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-01-20T13:51:57.835695+07:00[Asia/Novosibirsk]")
 @Validated
 @Api(value = "Auth", description = "the Auth API")
 public interface AuthApi {

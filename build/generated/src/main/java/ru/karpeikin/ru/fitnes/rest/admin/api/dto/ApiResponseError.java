@@ -18,7 +18,7 @@ import javax.validation.constraints.*;
  * Расширенная информация об ошибке
  */
 @ApiModel(description = "Расширенная информация об ошибке")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-01-19T14:23:02.915674+07:00[Asia/Novosibirsk]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-01-20T13:51:57.681634+07:00[Asia/Novosibirsk]")
 public class ApiResponseError   {
   @JsonProperty("timestamp")
   @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)

@@ -13,7 +13,7 @@ import javax.validation.constraints.*;
  * Описание деталей ошибки
  */
 @ApiModel(description = "Описание деталей ошибки")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-01-19T14:23:03.136589+07:00[Asia/Novosibirsk]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-01-20T13:51:57.835695+07:00[Asia/Novosibirsk]")
 public class ApiErrorNode   {
   @JsonProperty("node")
   private String node;

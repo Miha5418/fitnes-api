@@ -13,7 +13,7 @@ import javax.validation.constraints.*;
  * Параметры страницы с данными
  */
 @ApiModel(description = "Параметры страницы с данными")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-01-19T14:23:02.915674+07:00[Asia/Novosibirsk]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-01-20T13:51:57.681634+07:00[Asia/Novosibirsk]")
 public class PageParams   {
   @JsonProperty("pageSize")
   private Integer pageSize;

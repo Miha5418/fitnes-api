@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
  * Информация о клиенте для создания и отображения
  */
 @ApiModel(description = "Информация о клиенте для создания и отображения")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-01-19T14:23:03.136589+07:00[Asia/Novosibirsk]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-01-20T13:51:57.835695+07:00[Asia/Novosibirsk]")
 public class ClientInfo   {
   @JsonProperty("memberShipNumber")
   private String memberShipNumber;
